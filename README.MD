@@ -2,26 +2,49 @@
 
 ## Control files
 
-### package/DEBIAN/control
+### package/DEBIAN/control [[Link](https://www.debian.org/doc/manuals/maint-guide/dreq.de.html)]
 
 - Package-Infos:
   - Package
   - Version
   - Maintainer
   - Architecture
+    - any: dependent on the architecture
+    - all: independent on the architecture
   - Description
 
-  
 
-  ```
-  Package: <package name>
-  Version: 0.1
-  Maintainer: <author name>
-  Architecture: all
-  Description: <description>
-  ```
+```bash
+Package: <package name>
+Version: 0.1
+Maintainer: <author name>
+Architecture: all
+Description: <description>
+ <more description: single space at beginning is important!>
+```
 
-  
+### More:
+
+```bash
+Homepage: https://...
+Vcs-Git: https://...
+Depends: git (>= 2.17.1),
+
+# autodetect:
+Depends: ${shlibs:Depends}, ${misc:Depends}
+```
+
+
+
+### package/DEBIAN/copyright [[Link](http://dep.debian.net/deps/dep5/)]
+
+```bash
+Files: *
+Copyright: 2015-2019 G S
+License: GPL-3+
+```
+
+
 
 ### package/DEBIAN/postinst
 
@@ -40,7 +63,7 @@
 
 ### Pack deb: `create_deb.sh`
 
-```
+```bash
 dpkg-deb --build <package dir>
 ```
 
@@ -49,7 +72,7 @@ dpkg-deb --build <package dir>
 ### Install deb: `install_deb.sh`
 
 
-```
+```bash
 sudo dpkg -i <package name>.deb
 ```
 
@@ -58,8 +81,8 @@ sudo dpkg -i <package name>.deb
 ### Uninstall deb: `uninstall_deb.sh`
 
 
-```
-dpkg --remove <package name>
+```bash
+sudo dpkg --remove <package name>
 ```
 
 ### Warning during uninstall is OK!
