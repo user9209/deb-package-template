@@ -1,5 +1,14 @@
 # DEB-Package-Template
 
+## Concrete Example:
+
+### SHA3SUM
+
+- [GitHub](https://github.com/user9209/deb-package-template/tree/sample/sha3sum)
+- [Release](https://github.com/user9209/deb-package-template/releases/tag/sample1)
+
+
+
 ## Control files
 
 ### package/DEBIAN/control [[Link](https://www.debian.org/doc/manuals/maint-guide/dreq.de.html)]
