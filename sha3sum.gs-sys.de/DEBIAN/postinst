@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Install complete!"
+checks=`sha3sum /usr/local/bin/sha3sum`
+if [ "$checks" == "cfde65d6af08018bce7cf9b28815a462f05d192e5f646b37fba60d967802efb25a8df396b3e1ad433a0f7eb71d1a5d8bcb6946086e1729d0cca7aa47f0db9588  /usr/local/bin/sha3sum" ]
+then
+	echo "checksum matched - setup successfully ended!"
+else
+	echo "checksum mismatched - setup failed!"
+fi
+exit 0

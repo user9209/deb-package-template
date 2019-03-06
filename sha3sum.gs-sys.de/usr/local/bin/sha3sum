@@ -1,0 +1,26 @@
+#!/bin/bash
+
+ #########################################
+ #   Author:    Georg Schmidt            #
+ #   E-Mail:    <gs-develop@gs-sys.de>   #
+ #   Copyright: 2017 - 2019              #
+ #   Version:   04.2017                  #
+ #########################################
+
+ ###########################################################
+ # Output is sha3sum of the whole dir given by parameter 1 #
+ ###########################################################
+
+if [ "$1" == "-c" ] && [ "$2" != "" ] && [ "$3" == "" ];
+then
+    rhash -c $2 | grep --invert-match OK | grep --invert-match "-"
+    echo -e "\nIf there are no errors, everything is ok."
+    exit $?
+elif [ "$1" != "" ] && [ "$2" == "" ];
+then
+    find $1 -type f -print0  | xargs -0 rhash --sha3-512
+    exit $?
+else
+    echo -e "sha3sum <dir or file>\nsha3sum -c <checksum-file>"
+    exit 0
+fi

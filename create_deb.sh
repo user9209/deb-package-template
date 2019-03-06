@@ -1,3 +1,3 @@
 #!/bin/bash
-dpkg-deb --build package
+dpkg-deb --build sha3sum.gs-sys.de
 exit $?

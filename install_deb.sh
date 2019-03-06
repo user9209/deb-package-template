@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo dpkg -i package.deb
+sudo dpkg -i sha3sum.gs-sys.de.deb
 exit $?

@@ -1,0 +1,6 @@
+Package: sha3sum.gs-sys.de
+Version: 1.0
+Maintainer: Georg Schmidt
+Depends: rhash (>= 1.3.0)
+Architecture: all
+Description: sha3-512 script based on rhash

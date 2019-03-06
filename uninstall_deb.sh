@@ -1,3 +1,3 @@
 #!/bin/bash
-dpkg --remove demo.gs-sys.de
+dpkg --remove sha3sum.gs-sys.de
 exit $?
