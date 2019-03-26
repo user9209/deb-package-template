@@ -1,3 +1,3 @@
 #!/bin/bash
-dpkg --remove demo.gs-sys.de
+sudo dpkg --remove demo.gs-sys.de
 exit $?

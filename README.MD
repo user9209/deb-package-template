@@ -53,6 +53,12 @@ Copyright: 2015-2019 G S
 License: GPL-3+
 ```
 
+### package/DEBIAN/prenst
+
+- Runable: 0755 or 0555 !
+- Runs before the install
+  - Check for free space or network connection
+  - Stop tool or service, ...
 
 
 ### package/DEBIAN/postinst
