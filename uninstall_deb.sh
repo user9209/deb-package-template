@@ -1,3 +1,3 @@
 #!/bin/bash
-dpkg --remove demo.gs-sys.de
+dpkg --remove updater-apt.gs-sys.de
 exit $?

@@ -1,3 +1,17 @@
 #!/bin/bash
-echo "install complette!"
+
+chown root /usr/sbin/updater
+chmod 555 /usr/sbin/updater
+
+# run updater by any user
+grep -qxF 'ALL     ALL = NOPASSWD: /usr/sbin/updater' /etc/sudoers || echo 'ALL     ALL = NOPASSWD: /usr/sbin/updater' >> /etc/sudoers
+
+if [ -f /etc/anacrontab ]
+then
+# crontab
+grep -qxF '1	2	updater		updater' /etc/anacrontab || echo '1	2	updater		updater' >> /etc/anacrontab
+fi
+
+echo "Install complette!"
+echo "You can now run: 'sudo updater'"
 exit 0
