@@ -2,20 +2,22 @@
 
 chown root /usr/sbin/updater
 chmod 555 /usr/sbin/updater
+
 chown root /usr/bin/check-for-update-gs-sys-de.sh
 chmod 555 /usr/bin/check-for-update-gs-sys-de.sh
+
 chown root /etc/xdg/autostart/updater-apt.gs-sys.de.desktop
 chmod 444 /etc/xdg/autostart/updater-apt.gs-sys.de.desktop
 
 # run updater by any user
 grep -qxF 'ALL     ALL = NOPASSWD: /usr/sbin/updater' /etc/sudoers || echo 'ALL     ALL = NOPASSWD: /usr/sbin/updater' >> /etc/sudoers
 
+# add crontab
 if [ -f /etc/anacrontab ]
 then
-# crontab
-grep -qxF '1	2	updater		updater' /etc/anacrontab || echo '1	2	updater		updater' >> /etc/anacrontab
+grep -qxF '1	2	updater		/usr/bin/check-for-update-gs-sys-de.sh' /etc/anacrontab || echo '1	2	updater		/usr/bin/check-for-update-gs-sys-de.sh' >> /etc/anacrontab
 fi
 
-echo "Install complette!"
+echo "Install complete!"
 echo "You can now run: 'sudo updater'"
 exit 0

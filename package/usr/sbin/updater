@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # author: Georg Schmidt <gs-develop@gs-sys.de>
-# version: 01.2017
+# version: 03.2019
 
-## location: /sbin/updater
-# cp updater.sh /sbin/updater
-# chmod 0555 /sbin/updater
+## location: /usr/sbin/updater
+# cp updater.sh /usr/sbin/updater
+# chmod 0555 /usr/sbin/updater
+
+if [[ $EUID -ne 0 ]]; then
+   echo "Updater must be run as root! Quit now."
+   exit 1
+fi
 
 ps -A | grep updater > /dev/null 2>&1
 if [ $? -gt 0 ]; then
