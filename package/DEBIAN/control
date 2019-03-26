@@ -3,4 +3,4 @@ Version: 1.0
 Maintainer: GS
 Architecture: all
 Description: syncthing
-Depends: apt-transport-https
+Depends: apt, apt-transport-https, syncthing
