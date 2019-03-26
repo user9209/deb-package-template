@@ -3,4 +3,4 @@ Version: 1.1
 Maintainer: GS
 Architecture: all
 Description: updater using apt
-Depends: anacron apt sudo zenity
+Depends: apt, zenity, sudo, anacron
