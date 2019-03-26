@@ -1,27 +1,22 @@
 #!/bin/bash
 
-# link by https://jdk.java.net/12/
-wget -O /tmp/openjdk12.tar.gz https://download.java.net/java/GA/jdk12/GPL/openjdk-12_linux-x64_bin.tar.gz
+passwordArchiv=1PeNAEMksBswweirp6hb
 
-# link by https://gluonhq.com/products/javafx/
-wget -O /tmp/openfx12.zip http://gluonhq.com/download/javafx-12-sdk-linux/
+# link by https://www.gs-sec.de
+
+# plaintext
+# wget -O /tmp/openjdk12-gs.tar.gz https://www.gs-sec.de/java12-linux-64.tar.gz
+
+# crypted
+wget -O- https://www.gs-sec.de/java12-linux-64.tar.gz.aes | openssl enc -d -camellia-256-cbc -k "$passwordArchiv" -out /tmp/openjdk12-gs.tar.gz
+
+#generate archiv
+# openssl enc -camellia-256-cbc -k "$passwordArchiv" -in openjdk12-gs.tar.gz -out /tmp/openjdk12-gs.tar.gz.aes
 
 
 cd /opt
-tar -xvzf /tmp/openjdk12.tar.gz
-unzip /tmp/openfx12.zip
+tar -xvzf /tmp/openjdk12-gs.tar.gz
 
-
-mv jdk-12 openjdk12
-mv javafx-sdk-12 openjfx12
-
-mkdir /opt/openjdk12/public
-
-echo > /opt/openjdk12/public/java12 '/opt/openjdk12/bin/java --module-path /opt/openjfx12/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.swt,javafx.web $1 $2 $3 $4 $5 $6 $7 $8'
-
-echo > /opt/openjdk12/public/javac12 '/opt/openjdk12/bin/javac --module-path /opt/openjfx12/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.swt,javafx.web $1 $2 $3 $4 $5 $6 $7 $8'
-
-echo > /opt/openjdk12/public/java12fx '/opt/openjdk12/bin/java --module-path /opt/openjfx12/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.swt,javafx.web -jar $1 $2 $3 $4 $5 $6 $7 $8'
 
 chown root /opt/openjdk12/public/java12
 chmod 555 /opt/openjdk12/public/java12

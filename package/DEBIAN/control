@@ -3,4 +3,4 @@ Version: 1.0
 Maintainer: GS
 Architecture: all
 Description: java 12 with fx
-Depends: wget, tar, unzip, grep, sed
+Depends: wget, tar, grep, sed
