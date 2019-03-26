@@ -1,6 +1,0 @@
-#!/bin/bash
-
-wget -qO- https://syncthing.net/release-key.txt | apt-key add -
-echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-apt update
-

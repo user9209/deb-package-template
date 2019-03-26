@@ -1,6 +1,6 @@
-Package: syncthing.gs-sys.de
+Package: java12.gs-sys.de
 Version: 1.0
 Maintainer: GS
 Architecture: all
-Description: syncthing
-Depends: apt, apt-transport-https, syncthing
+Description: java 12 with fx
+Depends: wget, tar, unzip, grep, sed

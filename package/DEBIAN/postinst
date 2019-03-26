@@ -1,4 +1,39 @@
 #!/bin/bash
 
+# link by https://jdk.java.net/12/
+wget -O /tmp/openjdk12.tar.gz https://download.java.net/java/GA/jdk12/GPL/openjdk-12_linux-x64_bin.tar.gz
+
+# link by https://gluonhq.com/products/javafx/
+wget -O /tmp/openfx12.zip http://gluonhq.com/download/javafx-12-sdk-linux/
+
+
+cd /opt
+tar -xvzf /tmp/openjdk12.tar.gz
+unzip /tmp/openfx12.zip
+
+
+mv jdk-12 openjdk12
+mv javafx-sdk-12 openjfx12
+
+mkdir /opt/openjdk12/public
+
+echo > /opt/openjdk12/public/java12 '/opt/openjdk12/bin/java --module-path /opt/openjfx12/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.swt,javafx.web $1 $2 $3 $4 $5 $6 $7 $8'
+
+echo > /opt/openjdk12/public/javac12 '/opt/openjdk12/bin/javac --module-path /opt/openjfx12/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.swt,javafx.web $1 $2 $3 $4 $5 $6 $7 $8'
+
+echo > /opt/openjdk12/public/java12fx '/opt/openjdk12/bin/java --module-path /opt/openjfx12/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.swt,javafx.web -jar $1 $2 $3 $4 $5 $6 $7 $8'
+
+chown root /opt/openjdk12/public/java12
+chmod 555 /opt/openjdk12/public/java12
+chown root /opt/openjdk12/public/javac12
+chmod 555 /opt/openjdk12/public/javac12
+chown root /opt/openjdk12/public/java12fx
+chmod 555 /opt/openjdk12/public/java12fx
+
+grep -qF '/opt/openjdk12/public' /etc/environment || sed -i -E 's/\/usr\/local\/sbin/\/usr\/local\/sbin:\/opt\/openjdk12\/public/g' /etc/environment
+
+export PATH=$PATH:/opt/openjdk12/public
+
 echo "install complete!"
+java12 --version
 exit 0
