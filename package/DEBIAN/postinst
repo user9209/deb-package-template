@@ -1,23 +1,5 @@
 #!/bin/bash
 
-passwordArchiv=1PeNAEMksBswweirp6hb
-
-# link by https://www.gs-sec.de
-
-# plaintext
-# wget -O /tmp/openjdk12-gs.tar.gz https://www.gs-sec.de/java12-linux-64.tar.gz
-
-# crypted
-wget -O- https://www.gs-sec.de/java12-linux-64.tar.gz.aes | openssl enc -d -camellia-256-cbc -k "$passwordArchiv" -out /tmp/openjdk12-gs.tar.gz
-
-#generate archiv
-# openssl enc -camellia-256-cbc -k "$passwordArchiv" -in openjdk12-gs.tar.gz -out /tmp/openjdk12-gs.tar.gz.aes
-
-
-cd /opt
-tar -xvzf /tmp/openjdk12-gs.tar.gz
-
-
 chown root /opt/openjdk12/public/java12
 chmod 555 /opt/openjdk12/public/java12
 chown root /opt/openjdk12/public/javac12
