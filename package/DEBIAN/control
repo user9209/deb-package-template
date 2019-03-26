@@ -3,3 +3,4 @@ Version: 0.1
 Maintainer: G S
 Architecture: all
 Description: Demo DEB
+Depends: bash, sh
