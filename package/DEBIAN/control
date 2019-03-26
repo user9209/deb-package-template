@@ -3,4 +3,4 @@ Version: 1.0
 Maintainer: GS
 Architecture: all
 Description: updater using apt
-Depends: apt
+Depends: apt zenity

@@ -2,6 +2,10 @@
 
 chown root /usr/sbin/updater
 chmod 555 /usr/sbin/updater
+chown root /usr/bin/check-for-update-gs-sys-de.sh
+chmod 555 /usr/bin/check-for-update-gs-sys-de.sh
+chown root /etc/xdg/autostart/updater-apt.gs-sys.de.desktop
+chmod 444 /etc/xdg/autostart/updater-apt.gs-sys.de.desktop
 
 # run updater by any user
 grep -qxF 'ALL     ALL = NOPASSWD: /usr/sbin/updater' /etc/sudoers || echo 'ALL     ALL = NOPASSWD: /usr/sbin/updater' >> /etc/sudoers
