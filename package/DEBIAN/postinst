@@ -11,11 +11,11 @@ then
 	ARCH=`dpkg --print-architecture`
 	if [ "$ARCH" == "amd64" ]
 	then
-	  tar -xvjf /tmp/veracrypt.tar.bz2 veracrypt-1.23-setup-gui-x64
-	  ./veracrypt-1.23-setup-gui-x64
+	  tar -xvjf /tmp/veracrypt.tar.bz2 veracrypt-1.23-setup-console-x64
+	  ./veracrypt-1.23-setup-console-x64
 	else
-	  tar -xvjf /tmp/veracrypt.tar.bz2 veracrypt-1.23-setup-gui-x86
-	  ./veracrypt-1.23-setup-gui-x86
+	  tar -xvjf /tmp/veracrypt.tar.bz2 veracrypt-1.23-setup-console-x86
+	  ./veracrypt-1.23-setup-console-x86
 	fi
 else
   echo "Checksum was invalid!"
