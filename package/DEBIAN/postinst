@@ -26,6 +26,6 @@ else
   echo "Checksum was invalid!"
 fi
 
-
+echo "To start IntelliJ IDEA run 'idea' in the terminal!"
 echo "install complete!"
 exit 0
