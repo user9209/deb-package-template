@@ -1,6 +1,6 @@
-Package: demo.gs-sys.de
+Package: idea.gs-sys.de
 Version: 1.0
 Maintainer: GS
 Architecture: all
-Description: Demo DEB
-Depends: bash, sh
+Description: IntelliJ IDEA (java)
+Depends: wget, sha256sum
