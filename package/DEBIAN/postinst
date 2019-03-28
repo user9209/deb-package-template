@@ -1,3 +1,25 @@
 #!/bin/bash
-echo "install complete!"
-exit 0
+
+wget -c -O /tmp/veracrypt.tar.bz2 https://launchpad.net/veracrypt/trunk/1.23/+download/veracrypt-1.23-setup.tar.bz2
+
+cd /tmp
+# download checksum and test it
+wget -O- https://launchpad.net/veracrypt/trunk/1.23/+download/veracrypt-1.23-sha512sum.txt | grep veracrypt-1.23-setup.tar.bz2 | sha512sum -c -
+
+if [ $? -eq 0 ]
+then
+	ARCH=`dpkg --print-architecture`
+	if [ "$ARCH" == "amd64" ]
+	then
+	  tar -xvjf /tmp/veracrypt.tar.bz2 veracrypt-1.23-setup-gui-x64
+	  ./veracrypt-1.23-setup-gui-x64
+	else
+	  tar -xvjf /tmp/veracrypt.tar.bz2 veracrypt-1.23-setup-gui-x86
+	  ./veracrypt-1.23-setup-gui-x86
+	fi
+else
+  echo "Checksum was invalid!"
+fi
+
+echo "To start VeraCrypt run 'veracrypt' in the terminal!"
+echo "install complete!
