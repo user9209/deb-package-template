@@ -3,4 +3,4 @@ Version: 1.0
 Maintainer: GS
 Architecture: all
 Description: veracrypt setup
-Depends: wget, dmsetup, fuse
+Depends: wget, dmsetup, fuse, sha512sum, tar
