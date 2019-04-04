@@ -4,7 +4,7 @@ wget -c -O /tmp/veracrypt.tar.bz2 https://launchpad.net/veracrypt/trunk/1.23/+do
 
 cd /tmp
 # download checksum and test it
-wget -O- https://launchpad.net/veracrypt/trunk/1.23/+download/veracrypt-1.23-sha512sum.txt | grep veracrypt-1.23-setup.tar.bz2 | sha512sum -c -
+wget -O- https://launchpad.net/veracrypt/trunk/1.23/+download/veracrypt-1.23-sha512sum.txt | grep veracrypt-1.23-setup.tar.bz2 | sed -e "s/\r//g" | sha512sum -c -
 
 if [ $? -eq 0 ]
 then
