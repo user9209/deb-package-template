@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # get url: https://www.jetbrains.com/idea/download/#section=linux
-wget -c -O /tmp/ideaIC-2019.1-no-jbr.tar.gz https://download.jetbrains.com/idea/ideaIC-2019.1-no-jbr.tar.gz
+wget -c -O /tmp/ideaIC-2019.3.3-no-jbr.tar.gz https://download.jetbrains.com/idea/ideaIC-2019.3.3-no-jbr.tar.gz
 cd /tmp
 # download checksum and test it
-wget -O- https://download.jetbrains.com/idea/ideaIC-2019.1-no-jbr.tar.gz.sha256 | sha256sum -c -
+wget -O- https://download.jetbrains.com/idea/ideaIC-2019.3.3-no-jbr.tar.gz.sha256 | sha256sum -c -
 
 if [ $? -eq 0 ]
 then
@@ -14,13 +14,13 @@ then
     rm -r idea
   fi
 
-  tar -xvzf /tmp/ideaIC-2019.1-no-jbr.tar.gz
+  tar -xvzf /tmp/ideaIC-2019.3.3-no-jbr.tar.gz
   if [ $? == 0 ]
   then
-    mv idea-IC-191.6183.87 idea
+    mv idea-IC-* idea
     ln -s /opt/idea/bin/idea.sh /usr/local/bin/idea
 
-    rm /tmp/ideaIC-2019.1-no-jbr.tar.gz
+    rm /tmp/ideaIC-2019.3.3-no-jbr.tar.gz
   fi
 else
   echo "Checksum was invalid!"
