@@ -1,6 +1,6 @@
-Package: demo.gs-sys.de
+Package: software-system-key-demo.gs-sys.de
 Version: 1.0
 Maintainer: GS
 Architecture: all
-Description: Demo DEB
-Depends: bash, sh
+Description: Install global secret e.g. to decrypt protected debian packages
+Depends: bash

@@ -1,3 +1,9 @@
 #!/bin/bash
-echo "install complete!"
+
+if [ `cat /etc/software-keys/demo.key | grep -c "g56dfg4df64fdg56f4dfg"` == 1 ] ; then
+  echo "Install complete!"
+else
+  echo "Install failed!"
+fi
+
 exit 0

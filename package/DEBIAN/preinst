@@ -1,3 +1,6 @@
 #!/bin/bash
 
-echo "run before setup"
+mkdir -p /etc/software-keys
+echo>/etc/software-keys/demo.key "g56dfg4df64fdg56f4dfg"
+chmod 555 /etc/software-keys
+chmod 444 /etc/software-keys/demo.key
