@@ -1,5 +1,12 @@
 # DEB-Package-Template
 
+## How to use:
+
+```
+echo -n "This is a test" | openssl enc -e -camellia-256-cbc -pbkdf2 -salt -pass file:/etc/software-keys/demo.key | xxd -plain | tr -d '\n'
+```
+
+
 ## Concrete Example:
 
 ### SHA3SUM
