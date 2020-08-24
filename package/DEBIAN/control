@@ -1,6 +1,6 @@
-Package: demo.gs-sys.de
+Package: nespa.password-security.de
 Version: 1.0
-Maintainer: GS
+Maintainer: Password-Security.de
 Architecture: all
-Description: Demo DEB
-Depends: bash, sh
+Description: NeSPA Password Manager
+Depends: bash, openjdk-11-jre | openjdk-11-jdk, openjfx
